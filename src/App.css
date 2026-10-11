@@ -1,0 +1,124 @@
+/* App.css - styles for the whole app. Mobile-first; widens on larger screens. */
+
+:root {
+  --ink: #1b2236;
+  --muted: #5b6377;
+  --paper: #f3f5f9;
+  --panel: #ffffff;
+  --line: #cfd5e2;
+  --accent: #2b4eff;
+  --accent-dark: #1d38c4;
+  --error: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 640px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+
+.header {
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  background: #eef1f7;
+}
+.header h1 { margin: 0; font-size: 1.35rem; font-weight: 650; }
+
+.content { padding: 1rem; display: grid; gap: 1rem; }
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+/* Form */
+.form { padding: 1rem; background: #f7f8fb; }
+.form h2 { margin: 0 0 0.75rem; font-size: 1.25rem; }
+.form label { display: block; margin: 0.75rem 0 0.25rem; font-weight: 500; }
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #8d95a8;
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+}
+.form textarea { resize: vertical; }
+
+.button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.6rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.button:hover { background: var(--accent-dark); }
+
+.error { margin: 0.75rem 0 0; color: var(--error); font-size: 0.95rem; }
+
+/* Search */
+.search { padding: 0.6rem; border-bottom: 1px solid var(--line); }
+.search input {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #8d95a8;
+  border-radius: 6px;
+  font: inherit;
+}
+
+/* Project list */
+.project-list { list-style: none; margin: 0; padding: 0.5rem 0.75rem; }
+.project { display: flex; gap: 0.9rem; align-items: center; padding: 0.6rem 0; }
+.thumb {
+  flex: 0 0 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #8d95a8;
+  border-radius: 8px;
+  background: #e9edf7;
+  color: var(--accent-dark);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.project-text h3 { margin: 0; font-size: 1.1rem; }
+.project-text p { margin: 0.1rem 0 0; color: var(--muted); font-size: 0.9rem; }
+
+.empty { margin: 0; padding: 1.25rem 1rem; color: var(--muted); }
+
+/* Visible keyboard focus */
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Larger screens: add breathing room and show the page as a card */
+@media (min-width: 700px) {
+  body { padding: 1.5rem 0; }
+  .page { min-height: auto; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .content { padding: 1.5rem; }
+  .header h1 { font-size: 1.6rem; }
+}
